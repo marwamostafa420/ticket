@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Reservation/style.css' %}">
+</head>
+
+<body>
+    <div class="contanair">
+        <div class="title"> Patient Reservation</div>
+        <form>
+            <div class="user">
+                <div class="input-box">
+                    <span class="details">Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">National ID</span>
+                    <input type="id" placeholder="Enter your ID" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone</span>
+                    <input type="tel" placeholder="Enter your Phone" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Enter your Birth-date" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address</span>
+                    <input type="text" placeholder="Enter your Address" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Departments</span>
+                    <select id="department-selection" required>
+                        <option value="">Choose a Department from the List</option>
+                        <option value="Internal Medicine">Internal Medicine</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Nephrology">Nephrology</option>
+                        <option value="Oncology">Oncology</option>
+                        <option value="Pediatric">Pediatric</option>
+                        <option value="Obstetrics & Gynaecology">Obstetrics & Gynaecology</option>
+                        <option value="Ophthalmologist">Ophthalmologist</option>
+                        <option value="Ear,Nose and Throat">Ear,Nose and Throat</option>
+                        <option value="Urology">Urology</option>
+                        <option value="Radiology">Radiology</option>
+                        <option value="Dentistry">Dentistry</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="btn" style="width:25% ; margin:10px auto">
+                <input type="submit" value="Reserve">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

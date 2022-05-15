@@ -1,0 +1,57 @@
+"""Project URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+
+from Admin.views import Dashboard, admininfo, department, doctor, patients, ticket
+
+from . import views
+from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('Dashboard', Dashboard, name='Dashboard'),
+    path('Dashboard/patient', patients, name='Dashboard/patient'),
+    path('Dashboard/admin', admininfo, name='Dashboard/admin'),
+    path('Dashboard/departments', department, name='Dashboard/departments'),
+    path('Dashboard/doctors', doctor, name='Dashboard/doctors'),
+    path('Dashboard/ticket', ticket, name='Dashboard/ticket'),
+    path('clinic/', children, name='children'),
+    path('clinic1/', digestion, name='digestion'),
+    path('clinic2/', ear, name='ear'),
+    path('clinic3/', eyes, name='eyes'),
+    path('clinic4/', gyn, name='gyn'),
+    path('clinic5/', heart, name='heart'),
+    path('clinic6/', internal, name='internal'),
+    path('clinic7/', kidney, name='kidney'),
+    path('clinic8/', oncology, name='oncology'),
+    path('clinic9/', radiology, name='radiology'),
+    path('clinic10/', teeth, name='teeth'),
+    path('clinic11/', urology, name='urology'),
+    path('reserve/', reserve, name='reserve'),
+
+
+    path('', views.home, name='Home'),
+    path('profile', views.profile),
+    path('MoreServ', views.more_serv, name='more_serv'),
+    path('SignUp', views.singup, name='signup'),
+    path('LogIn', views.login, name='login'),
+    path('فيزيتا', views.arabic, name='arabic'),
+    path('إشترك', views.ARsingup, name='ARsignup'),
+    path('تسجيل الدخول', views.ARlogin, name='ARlogin'),
+    path('ticket', views.ticket, name='ticket'),
+
+]
