@@ -1,5 +1,7 @@
+from datetime import datetime
+from socket import inet_aton
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 
@@ -22,7 +24,7 @@ class Patient(models.Model):
 class Doctor(models.Model):
     ID = models.IntegerField()
     Name = models.CharField()
-    BirthDay = models.DateTimeField()
+    BirthDay = models.DateTimeField(initial=datetime.now())
     WorkName = models.CharField()
     City = models.CharField()
     Phone = models.IntegerField(max_length=11)
@@ -43,4 +45,7 @@ class ReservationTicket(models.Model):
     PatientDoctor = models.CharField()
     Department = models.CharField()
     Disease = models.CharField()
-    State_of_treatement = models.BooleanField()
+
+    # 0 ---> على حسابك
+    # 1--> على نفقه الدوله
+    State_of_treatement = models.BooleanField(initial=0)
