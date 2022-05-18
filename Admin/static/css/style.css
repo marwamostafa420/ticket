@@ -39,6 +39,7 @@ body {
 }
 .sidebar-header {
   font-size: 20px;
+  background-color: #009688;
   font-weight: bolder;
 }
 .sidebar {
@@ -55,10 +56,10 @@ body {
   width: 41px;
   margin-left: 200px;
   height: 39px;
-  color: #3f51b5;
+  color: #009688;
   text-align: center;
   margin-top: 8px;
-  border: 1px solid #3f51b5;
+  border: 1px solid #009688;
   background-color: #fff;
   border-radius: 50%;
 }
@@ -72,7 +73,7 @@ body {
   height: 39px;
   color: #3f51b5;
   text-align: center;
-  border: 1px solid #3f51b5;
+  border: 1px solid #009688;
   background-color: #fff;
   border-radius: 50%;
 }
@@ -91,7 +92,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-  color: #3f51b5;
+  color: #009688;
   transition: ease-in-out 0.3s;
 }
 #Exit {
@@ -115,10 +116,21 @@ body {
 
 .profile .image img {
   border-radius: 50%;
-  border: 2px solid #3f51b5;
+  border: 2px solid #009688;
 }
-
+/* 
 .main-content .box-content:hover {
   transform: scale(1.1);
   transition: ease-in-out 0.3s;
+} */
+
+.btnsuccess {
+  background-color: #009688 !important;
 }
+.position {
+  position: relative;
+}
+/* .addicon {
+  position: absolute;
+  font-size: 20px;
+} */

@@ -1,104 +1,41 @@
 {% extends 'base.html' %} {% block content %}
 
-<section class="search mt-5">
+<section class="table mt-2 w-75 m-auto">
   <div class="container">
     <div class="row">
-      <form class="form-inline">
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputPassword2"
-            placeholder="enter ID"
-          />
-        </div>
-        <button type="submit" class="btn mb-2">
-          <i class="fa fa-magnifying-glass"></i>
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="table mt-2">
-  <div class="container">
-    <div class="row">
-      <table class="table table-striped table-hover">
-        <thead class="thead table-dark">
+      <div class="main">
+        <form action="" method="POST" >
+         <div class="input-group">
+             <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+           
+             <div class="input-group-append">
+               <button class="btn btn-secondary" type="submit">
+                 <i class="fa fa-search"></i>
+               </button>
+             </div>
+           </form>
+           </div>
+     
+          </div>
+     <table class="styled-table">
+      <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Birthdate</th>
-            <th scope="col">City</th>
-            <th scope="col">phone</th>
-            <th scope="col">Work name</th>
-            <th scope="col" class="operation">operation</th>
-            <th scope="col">
-              <a href="additions/patientform.html"
-                ><i class="fa fa-plus"></i
-              ></a>
-            </th>
+              <th>Name</th>
+              <th>Points</th>
           </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>
-              <button type="submit" class="btn mb-2">
-                <i class="fa fa-pen"></i>
-              </button>
-
-              <button type="submit" class="btn mb-2 delete">
-                <i class="fa fa-trash-can"></i>
-              </button>
-            </td>
+              <td>Dom</td>
+              <td>6000</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>
-              <button type="submit" class="btn mb-2">
-                <i class="fa fa-pen"></i>
-              </button>
-
-              <button type="submit" class="btn mb-2 delete">
-                <i class="fa fa-trash-can"></i>
-              </button>
-            </td>
+          <tr class="active-row">
+              <td>Melissa</td>
+              <td>5150</td>
           </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <button type="submit" class="btn mb-2">
-                <i class="fa fa-pen"></i>
-              </button>
-
-              <button type="submit" class="btn mb-2 delete">
-                <i class="fa fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <!-- and so on... -->
+      </tbody>
+  </table>
     </div>
   </div>
 </section>

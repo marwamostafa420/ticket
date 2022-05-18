@@ -10,6 +10,7 @@ $(".navspan").click(() => {
   $(".navspan1").css({ display: "block" });
   $(".navspan1").animate({ marginLeft: "0px" }, 500);
   $(".navspan").css({ display: "none" });
+  $(".position").animate({ left: "10px" }, 500);
 
   //   $("#Exit").fadeToggle("100");
 });
@@ -21,7 +22,7 @@ $(".navspan1").click(() => {
   $(".navspan1").animate({ marginLeft: "200px" }, 500);
   $(".navspan").css({ display: "block" });
   $(".navspan1").css({ display: "none" });
-
+  $(".position").animate({ left: "80px" }, 500);
   //   $("#Exit").fadeToggle("100");
 });
 
@@ -55,8 +56,3 @@ function drawChart() {
   );
   chart.draw(data, options);
 }
-
-patient.addEventListener("click", function () {
-  // dashboard_content.innerHTML = admintable;
-  console.log(admin.innerHTML);
-});
