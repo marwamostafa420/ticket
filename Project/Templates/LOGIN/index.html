@@ -1,11 +1,12 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
-  <title>Card</title>
+  <title>LogIn</title>
   <link rel="stylesheet" href="{% static 'Login/style.css' %}">
   <link rel="stylesheet" href="{% static 'Login/bootstrap.css' %}">
 </head>
@@ -19,7 +20,7 @@
     <div class="container collapse navbar-collapse" id="navbarSupportedContent">
       <div class="main">
         <i class="fa-solid fa-house-chimney-medical"></i>
-        <a class="navbar-brand" href="home.html">Vezeeta</a>
+        <a class="navbar-brand" href="{% url 'Home' %}">Vezeeta</a>
       </div>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -44,11 +45,14 @@
   </div>
   <div class="page">
     <div class="Card">
-      <form action="" method="post">
+      <form action="Login" method="POST">
         <h2 style="margin-bottom:30px">Log In</h2>
-        <input type="text" name="userName" placeholder="User Name" class="form-control mb-4">
-        <input type="password" name="password" placeholder="Password" class="form-control mb-4">
+        {% csrf_token %}
+        {{form | crispy }}
+        <!-- <input type="text" name="userName" placeholder="User Name" class="form-control mb-4">
+        <input type="password" name="password" placeholder="Password" class="form-control mb-4"> -->
         <input type="submit" value="Login" class="btn btn-primary">
+        <!-- <a href="{% url 'Dashboard' %}" class="btn btn-primary">Login</a> -->
         <a href="#" style="margin-top:10px">Forget Password / Sign Up</a>
 
       </form>
