@@ -20,7 +20,7 @@ from Admin.views import Dashboard, admininfo, department, doctor, patients, tick
 
 from . import views
 from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve
-
+from django.contrib.auth.views import LoginView, LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Dashboard', Dashboard, name='Dashboard'),
@@ -47,8 +47,15 @@ urlpatterns = [
     path('', views.home, name='Home'),
     path('profile', views.profile),
     path('MoreServ', views.more_serv, name='more_serv'),
-    path('SignUp', views.singup, name='signup'),
-    path('LogIn', views.login, name='login'),
+    # path('SignUp', views.singup, name='signup'),
+
+
+    path('Login', LoginView.as_view(
+        template_name="LOGIN/index.html"), name='login'),
+
+    path('logout', LogoutView.as_view(
+        template_name='Home/home.html'), name='logout'),
+
     path('فيزيتا', views.arabic, name='arabic'),
     path('إشترك', views.ARsingup, name='ARsignup'),
     path('تسجيل الدخول', views.ARlogin, name='ARlogin'),

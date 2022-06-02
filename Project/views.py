@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from .forms import signupForm
 # Home Page
 
 
@@ -65,14 +68,6 @@ def reserve(request):
 
 def more_serv(request):
     return render(request, 'MoreServ/moreServ.html')
-
-
-def singup(request):
-    return render(request, "LOGIN/index2.html")
-
-
-def login(request):
-    return render(request, "LOGIN/index.html")
 
 
 def arabic(request):

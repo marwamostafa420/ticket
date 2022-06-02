@@ -513,7 +513,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   bottom: -36px;
-  z-index: 2;
+  z-index: 0;
   background-color: white;
 }
 
@@ -754,7 +754,7 @@ body {
   overflow: hidden;
 }
 
-.testimonials .testimonials-content .ts-box > p {
+.testimonials .testimonials-content .ts-box>p {
   color: #707070;
   font-style: italic;
   line-height: 1.6;
