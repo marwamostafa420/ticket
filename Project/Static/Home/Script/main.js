@@ -191,7 +191,6 @@ Bullets.forEach(bullet => {
 document.querySelector('.reset').onclick = function () {
     localStorage.clear();
     window.location.reload();
-    console.log("We")
 }
 
 // document.querySelector('.refresh').addEventListener('click', () => {
@@ -284,25 +283,17 @@ function scrollFunction() {
     }
 }
 
-
-
-
 //--------------------------------------------------------------------------
 //Search bar
 
-const content = document.querySelector('.swiper-wrapper');
-console.log(content.firstChild)
-const clinicName = document.querySelectorAll('.serv-content ');
+const clinicName = document.querySelectorAll('.serv-content');
 
 const searchInput = document.querySelector('[data-search]');
 
-searchInput.addEventListener('input', FilterTask)
 
-// const searchInput = document.querySelector('.searchInput');
-function FilterTask(e) {
+searchInput.addEventListener('input', (e) => {
+    console.log(searchInput.value);
     const text = e.target.value.toLowerCase();
-
-    //forEach : loop on your element
     clinicName.forEach(function (task) {
 
         const item = task.textContent;
@@ -315,11 +306,5 @@ function FilterTask(e) {
         }
     });
 
-
-
-    // console.log(text)
-
-}
-
-
+})
 //--------------------------------------------------------------------------

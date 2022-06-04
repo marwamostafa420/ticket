@@ -7,8 +7,11 @@
 <head>
   <meta charset="utf-8">
   <title>LogIn</title>
-  <link rel="stylesheet" href="{% static 'Login/style.css' %}">
   <link rel="stylesheet" href="{% static 'Login/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'Home/Style/fontawesome.min.css' %}">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'Login/style.css' %}">
+
 </head>
 
 <body>
@@ -44,11 +47,19 @@
     <!-- </div> -->
   </div>
   <div class="page">
-    <div class="Card">
+    <div class="Card container">
       <form action="Login" method="POST">
         <h2 style="margin-bottom:30px">Log In</h2>
         {% csrf_token %}
-        {{form | crispy }}
+        <div class="row">
+          <div class="col-md-8 w-100">
+            {{form.username | as_crispy_field}}
+          </div>
+          <div class="col-md-8 w-100" style="margin-bottom: 20px;">
+            {{form.password | as_crispy_field}}
+          </div>
+        </div>
+        <!-- {{form | crispy }} -->
         <!-- <input type="text" name="userName" placeholder="User Name" class="form-control mb-4">
         <input type="password" name="password" placeholder="Password" class="form-control mb-4"> -->
         <input type="submit" value="Login" class="btn btn-primary">
@@ -59,6 +70,7 @@
     </div>
   </div>
   <script src="{% static 'Login/bootstrap.js' %}"></script>
+  <script src="{% static 'Login/function.js' %}"></script>
 </body>
 
 </html>
