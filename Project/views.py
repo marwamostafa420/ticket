@@ -84,3 +84,7 @@ def ARlogin(request):
 
 def ticket(request):
     return render(request, "Ticket/index.html")
+
+
+def forgetEmail(request):
+    return render(request, 'forget/forget.html')

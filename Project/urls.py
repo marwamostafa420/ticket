@@ -19,7 +19,7 @@ from django.urls import path
 from Admin.views import Dashboard, admininfo, department, doctor, patients, ticket
 
 from . import views
-from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve
+from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve, forgetEmail
 from django.contrib.auth.views import LoginView, LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -60,5 +60,6 @@ urlpatterns = [
     path('إشترك', views.ARsingup, name='ARsignup'),
     path('تسجيل الدخول', views.ARlogin, name='ARlogin'),
     path('ticket', views.ticket, name='ticket'),
+    path('forgetEmail', views.forgetEmail, name='forgetEmail'),
 
 ]
