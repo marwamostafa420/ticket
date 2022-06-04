@@ -283,3 +283,43 @@ function scrollFunction() {
 
     }
 }
+
+
+
+
+//--------------------------------------------------------------------------
+//Search bar
+
+const content = document.querySelector('.swiper-wrapper');
+console.log(content.firstChild)
+const clinicName = document.querySelectorAll('.serv-content ');
+
+const searchInput = document.querySelector('[data-search]');
+
+searchInput.addEventListener('input', FilterTask)
+
+// const searchInput = document.querySelector('.searchInput');
+function FilterTask(e) {
+    const text = e.target.value.toLowerCase();
+
+    //forEach : loop on your element
+    clinicName.forEach(function (task) {
+
+        const item = task.textContent;
+        if (item.toLowerCase().indexOf(text) != -1) {
+            task.style.display = 'block';
+
+        } else {
+            task.style.display = 'none';
+
+        }
+    });
+
+
+
+    // console.log(text)
+
+}
+
+
+//--------------------------------------------------------------------------

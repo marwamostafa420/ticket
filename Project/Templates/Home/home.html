@@ -180,6 +180,13 @@
         <div class="main-heading">
             <h1>Outpatient clinics</h1>
         </div>
+        <div class="container" style=" margin-top:60px;">
+            <div class="input-group w-25">
+                <input type="text" class="form-control" placeholder="Enter Clinic Name" aria-label="Username"
+                    aria-describedby="basic-addon1" data-search>
+                <button class="btn btn-success searchInput">Search</button>
+            </div>
+        </div>
         <section>
             <div class="swiper mySwiper container">
                 <div class="swiper-wrapper content">
@@ -189,14 +196,12 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Internal Medicine</h1>
+                            <h1 class="card-content-text">Internal Medicine</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a></button> -->
-                                <a href="{% url 'internal' %}">view</a>
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a></button> -->
+                            <a href="{% url 'internal' %}" class="btn btn-primary book">View</a>
                         </div>
 
                     </div>
@@ -206,14 +211,13 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Cardiology</h1>
+                            <h1 class="card-content-text">Cardiology</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a></button> -->
-                                <a href="{% url 'heart' %}">view</a>
-                            </button>
+
+                            <!-- <a href="Pages/reservation/reserv.html">View</a></button> -->
+                            <a href="{% url 'heart' %}" class="btn btn-primary book">View</a>
                         </div>
 
                     </div>
@@ -222,15 +226,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Nephrology</h1>
+                            <h1 class="card-content-text">Nephrology</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
 
-                                <a href="{% url 'kidney' %}">view</a>
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+
+                            <a href="{% url 'kidney' %}" class="btn btn-primary book">View</a>
+
                         </div>
 
                     </div>
@@ -240,15 +244,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Oncology</h1>
+                            <h1 class="card-content-text">Oncology</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'oncology' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'oncology' %}" class="btn btn-primary book">View</a>
+
+
                         </div>
 
                     </div>
@@ -258,15 +262,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Pediatric</h1>
+                            <h1 class="card-content-text">Pediatric</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'children' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'children' %}" class="btn btn-primary book">View</a>
+
+
                         </div>
 
                     </div>
@@ -276,14 +280,14 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Obstetrics & Gynaecology</h1>
+                            <h1 class="card-content-text">Obstetrics & Gynaecology</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'gyn' %}">view</a>
-                            </button>
+
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'gyn' %}" class="btn btn-primary book">View</a>
+
                         </div>
 
                     </div>
@@ -293,15 +297,14 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Ophthalmologist</h1>
+                            <h1 class="card-content-text">Ophthalmologist</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'eyes' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'eyes' %}" class="btn btn-primary book">View</a>
+
                         </div>
 
                     </div>
@@ -311,15 +314,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Ear,Nose and Throat</h1>
+                            <h1 class="card-content-text">Ear,Nose and Throat</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'ear' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'ear' %}" class="btn btn-primary book">view</a>
+
+
                         </div>
 
                     </div>
@@ -329,15 +332,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Urology</h1>
+                            <h1 class="card-content-text">Urology</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'urology' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'urology' %}" class="btn btn-primary book">View</a>
+
+
                         </div>
 
                     </div>
@@ -347,15 +350,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Radiology</h1>
+                            <h1 class="card-content-text">Radiology</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'radiology' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'radiology' %}" class="btn btn-primary book">View</a>
+
+
                         </div>
 
                     </div>
@@ -365,15 +368,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Dentistry</h1>
+                            <h1 class="card-content-text">Dentistry</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'teeth' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'teeth' %}" class="btn btn-primary book">View</a>
+
+
                         </div>
 
                     </div>
@@ -382,15 +385,15 @@
 
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1>Digestion System</h1>
+                            <h1 class="card-content-text">Digestion System</h1>
                             <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
                                 appear
                             </p>
-                            <button class="btn btn-primary book">
-                                <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                                <a href="{% url 'digestion' %}">view</a>
 
-                            </button>
+                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
+                            <a href="{% url 'digestion' %}" class="btn btn-primary book">View</a>
+
+
                         </div>
 
                     </div>
