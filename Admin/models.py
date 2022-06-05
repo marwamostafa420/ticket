@@ -1,20 +1,25 @@
-from datetime import datetime
-from operator import mod
-from socket import inet_aton
-# from django.db import models
-from datetime import datetime
+import datetime
+import os
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
+def filepath(request, filename):
+    old_filename = filename
+    timenow = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
+    filename = "%s%s" %(timenow,old_filename)
+    return os.path.join("upload/",filename)
 
 
 class Department(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField()
-    img = models.CharField(max_length=255)
+    img = models.ImageField(upload_to=filepath, null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     Days = models.CharField(max_length=255)
-    rate = models.IntegerField()
-
+    Days2 = models.CharField(max_length=255, null=True)
+    rate = models.IntegerField(validators=([MinValueValidator(0), MaxValueValidator(5)]))
+    def __str__(self) -> str:
+        return self.name
 
 class Jobtitles(models.Model):
     name = models.CharField(max_length=255)
