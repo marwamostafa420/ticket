@@ -1,3 +1,4 @@
+
 from django import forms
 from .models import Department
 class clincform(forms.ModelForm):
@@ -11,5 +12,5 @@ class clincform(forms.ModelForm):
             'img': forms.FileInput(attrs={'class': 'form-control'}),
             'Days': forms.TextInput(attrs={'class':'form-control'}),
             'Days2': forms.TextInput(attrs={'class':'form-control'}),   
-            'price': forms.TextInput(attrs={'class':'form-control'}),
+            'price': forms.TextInput(attrs={'class':'form-control','placeholder':'Price Per LE'}),
         }
