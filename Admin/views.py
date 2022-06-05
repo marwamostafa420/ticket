@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-
+from django.contrib import messages
 from Admin.forms import clincform
 from Admin.models import Department,Patient,Doctor,ticket
 
@@ -18,11 +18,12 @@ def department(request):
     deps = Department.objects.all()
 
     form = clincform(request.POST or None, request.FILES or None)
+    context = {'deps':deps,'form':form}
     if form.is_valid():
         form.save()
+        messages.success(request, "A Clincal Has Been Added Succesfully ")
         return redirect('Dashboard/departments')
-    
-    return render(request,'departments.html',{'deps':deps,'form':form})
+    return render(request,'departments.html',context)
 
 
 def doctor(request):
@@ -41,15 +42,19 @@ def Ticket(request):
 def deletedepartment(request,depid):
     dep = Department.objects.get(pk=depid)
     dep.delete()
+    messages.success(request, "A Clincal Has Been Deleted Succesfully ")
     return redirect('Dashboard/departments')
 
 def searchdepartment(request):
     # item = Items()
     if request.method == "POST":
         key = request.POST.get('search')
-        
+        form = clincform(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "A Clincal Has Been Added Succesfully ")
         res = Department.objects.filter(name__icontains = key)
-        return render(request,"search_dep.html",{"departments":res})
+        return render(request,"search_dep.html",{"departments":res,'form':form})
     else:
         return render(request,"search_dep.html",{})       
     
