@@ -18,6 +18,7 @@ class Department(models.Model):
     Days = models.CharField(max_length=255)
     Days2 = models.CharField(max_length=255, null=True)
     rate = models.IntegerField(validators=([MinValueValidator(0), MaxValueValidator(5)]))
+    price = models.DecimalField(max_digits=5, decimal_places=2, null=True)
     def __str__(self) -> str:
         return self.name
 

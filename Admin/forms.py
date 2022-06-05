@@ -11,4 +11,5 @@ class clincform(forms.ModelForm):
             'img': forms.FileInput(attrs={'class': 'form-control'}),
             'Days': forms.TextInput(attrs={'class':'form-control'}),
             'Days2': forms.TextInput(attrs={'class':'form-control'}),   
+            'price': forms.TextInput(attrs={'class':'form-control'}),
         }
