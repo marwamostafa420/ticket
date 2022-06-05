@@ -1,11 +1,15 @@
 from django.shortcuts import redirect, render
 
 from Admin.forms import clincform
-from Admin.models import Department
+from Admin.models import Department,Patient,Doctor,ticket
 
 # Create your views here.
 def Dashboard(request):
-    return render(request,'Dashbord.html')
+    Departmentcount = Department.objects.count()
+    patientscount = Patient.objects.count()
+    doctorscount = Doctor.objects.count()
+    ticketcount  = ticket.objects.count()
+    return render(request,'Dashbord.html',{'deps':Departmentcount,'pat':patientscount,'doc':doctorscount,'ticket':ticketcount})
 def admininfo(request):
     return render(request,'admin.html')
 
@@ -29,7 +33,7 @@ def patients(request):
     return render(request,'patients.html')
 
 
-def ticket(request):
+def Ticket(request):
     return render(request,'ticket.html')
 
 

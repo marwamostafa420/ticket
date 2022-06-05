@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Admin.views import Dashboard, admininfo, deletedepartment, department, doctor, patients, searchdepartment, ticket
+from Admin.views import Dashboard, Ticket, admininfo, deletedepartment, department, doctor, patients, searchdepartment
 
 from . import views
 from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve, forgetEmail
@@ -30,7 +30,7 @@ urlpatterns = [
     path('Dashboard/admin', admininfo, name='Dashboard/admin'),
     path('Dashboard/departments', department, name='Dashboard/departments'),
     path('Dashboard/doctors', doctor, name='Dashboard/doctors'),
-    path('Dashboard/ticket', ticket, name='Dashboard/ticket'),
+    path('Dashboard/ticket', Ticket, name='Dashboard/ticket'),
     path('clinic/', children, name='children'),
     path('clinic1/', digestion, name='digestion'),
     path('clinic2/', ear, name='ear'),
