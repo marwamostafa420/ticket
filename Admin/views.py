@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from Admin.forms import clincform
@@ -41,6 +42,8 @@ def Ticket(request):
 # Dashboard action
 def deletedepartment(request,depid):
     dep = Department.objects.get(pk=depid)
+    if len(dep.img)>0:
+        os.remove(dep.img.path)
     dep.delete()
     messages.success(request, "A Clincal Has Been Deleted Succesfully ")
     return redirect('Dashboard/departments')
