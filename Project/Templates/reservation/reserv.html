@@ -47,23 +47,23 @@
     </div>
     <div class="contanair">
         <form action=" {% url 'ticket' %}" method="POST">
-            <h2 style="font-weight:600; text-align: center;">Patient Reservation</h2>
+            <h2 style="font-weight:600; text-align: center;margin-top:10px;margin-bottom:20px;">Patient Reservation</h2>
 
             {% csrf_token %}
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 my-3">
                     {{form.Name | as_crispy_field }}
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                     {{form.National_num | as_crispy_field }}
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                     {{form.BirthDay | as_crispy_field }}
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 my-3">
                     {{form.Phone | as_crispy_field }}
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 my-3">
                     {{form.City | as_crispy_field }}
                 </div>
             </div>
