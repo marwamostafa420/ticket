@@ -23,7 +23,7 @@
                     <div class="table-row">
                         <tr>
                             <td>
-                                <h4>Your Name:</h4> Menna Atef
+                                <h4>Patient Name:</h4> {{name}}
                             </td>
                             <td>
                                 <h4>Doctor Name:</h4> Ahmed Hassan
@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h4>Your Code :</h4>10
+                                <h4>Your Code : <span class="try">{{id}}</span></h4>
                             </td>
                             <td><button onclick="window.print()" class="btn">Print</button></td>
                         </tr>
@@ -54,6 +54,7 @@
 
 
     </section>
+    <script src="{% static 'Ticket/function.js' %}"></script>
 </body>
 
 </html>

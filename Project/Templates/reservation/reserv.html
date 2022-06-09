@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,56 +9,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'Reservation/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/Style/bootstrap.css' %}">
+
 </head>
 
 <body>
-    <div class="contanair">
-        <div class="title"> Patient Reservation</div>
-        <form>
-            <div class="user">
-                <div class="input-box">
-                    <span class="details">Name</span>
-                    <input type="text" placeholder="Enter your name" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">National ID</span>
-                    <input type="id" placeholder="Enter your ID" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Phone</span>
-                    <input type="tel" placeholder="Enter your Phone" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Birth Date</span>
-                    <input type="date" placeholder="Enter your Birth-date" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Address</span>
-                    <input type="text" placeholder="Enter your Address" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Departments</span>
-                    <select id="department-selection" required>
-                        <option value="">Choose a Department from the List</option>
-                        <option value="Internal Medicine">Internal Medicine</option>
-                        <option value="Cardiology">Cardiology</option>
-                        <option value="Nephrology">Nephrology</option>
-                        <option value="Oncology">Oncology</option>
-                        <option value="Pediatric">Pediatric</option>
-                        <option value="Obstetrics & Gynaecology">Obstetrics & Gynaecology</option>
-                        <option value="Ophthalmologist">Ophthalmologist</option>
-                        <option value="Ear,Nose and Throat">Ear,Nose and Throat</option>
-                        <option value="Urology">Urology</option>
-                        <option value="Radiology">Radiology</option>
-                        <option value="Dentistry">Dentistry</option>
-                    </select>
+    <div class="navbar navbar-expand-lg ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="main">
+                <i class="fa-solid fa-house-chimney-medical"></i>
+                <a class="navbar-brand" href="{% url 'Home' %}">Vezeeta</a>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#feed">FeedBack</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- </div> -->
+    </div>
+    <div class="contanair">
+        <form action=" {% url 'ticket' %}" method="POST">
+            <h2 style="font-weight:600;">Patient Reservation</h2>
+
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    {{form.Name | as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{form.National_num | as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{form.BirthDay | as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{form.Phone | as_crispy_field }}
+                </div>
+                <div class="col-md-8">
+                    {{form.City | as_crispy_field }}
                 </div>
             </div>
-            <div class="btn" style="width:25% ; margin:10px auto">
-                <input type="submit" value="Reserve">
+            <!-- {{form | crispy }} -->
+
+            <div class="bottom" style="text-align: center;">
+                <button type="submit" class="btn btn-outline-primary w-25 my-3">Book</button>
             </div>
         </form>
+
     </div>
 
 </body>

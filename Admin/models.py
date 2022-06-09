@@ -3,24 +3,29 @@ import os
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
+
+
 def filepath(request, filename):
     old_filename = filename
     timenow = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
-    filename = "%s%s" %(timenow,old_filename)
-    return os.path.join("upload/",filename)
+    filename = "%s%s" % (timenow, old_filename)
+    return os.path.join("upload/", filename)
 
 
 class Department(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField()
-    img = models.ImageField(upload_to=filepath, null=True,blank=True)
+    img = models.ImageField(upload_to=filepath, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     Days = models.CharField(max_length=255)
     Days2 = models.CharField(max_length=255, null=True)
-    rate = models.IntegerField(validators=([MinValueValidator(0), MaxValueValidator(5)]))
+    rate = models.IntegerField(validators=(
+        [MinValueValidator(0), MaxValueValidator(5)]))
     price = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+
     def __str__(self) -> str:
         return self.name
+
 
 class Jobtitles(models.Model):
     name = models.CharField(max_length=255)
@@ -28,6 +33,9 @@ class Jobtitles(models.Model):
 
 class City(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Doctor(models.Model):
@@ -37,11 +45,14 @@ class Doctor(models.Model):
     dept = models.ForeignKey(Department, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Patient(models.Model):
-    National_num = models.CharField(max_length=200)
+    National_num = models.CharField(max_length=14)
     Name = models.CharField(max_length=100)
-    BirthDay = models.DateTimeField()
+    BirthDay = models.DateField()
     City = models.ForeignKey(City, on_delete=models.CASCADE)
     Phone = models.CharField(max_length=11)
     reserved = models.BooleanField(default=False)
@@ -50,9 +61,7 @@ class Patient(models.Model):
 
 class ticket(models.Model):
     dept = models.ForeignKey(Department, on_delete=models.CASCADE)
-    Doc = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     Pat = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
     startdate = models.DateTimeField(null=True)
     enddate = models.DateTimeField(null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)

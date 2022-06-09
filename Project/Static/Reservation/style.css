@@ -1,72 +1,63 @@
-*{
+* {
     padding: 0;
     margin: 0;
-    
+
 }
 
 body {
-    display: flex;
+
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #71b7e6,#9b59b6);
-    
-  }
-.contanair{
-      max-width: 700px;
-      width: 100%;
-      background: #fff;
-      padding: 25px 30px;
-      border-radius: 5px;
+    background-color: #0D6EFD;
 
-
-  }
-.contanair .title{
-      font-size: 25px;
-      font-weight: 600;
-      position: relative;
-
-  }
-.contanair form .user{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0px 12px 0px;
 }
-form .user .input-box{
-    width: calc(100%/2 - 20px);
-   margin-bottom : 15px;
+
+form {
+
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 30px;
+    box-shadow: 1.2px 1.2px 15px #66a1f9;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
-.user .input-box .details{
+
+.contanair::before {
+    content: "";
+    position: fixed;
+    width: 300%;
+    height: 100%;
+    background-color: #0075FF;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) skew(0, -10deg);
+    border-radius: 50%;
+    z-index: -1;
+    animation: waving 10s ease-in-out infinite alternate;
+}
+
+@keyframes waving {
+    from {
+        transform: translateX(-50%) skew(0, -10deg);
+
+    }
+
+    to {
+        transform: translateX(-60%) skew(30deg, 0deg);
+
+    }
+}
+
+
+
+.navbar {
+    /* background-color: rgb(100, 100, 100); */
+    width: 100%;
     display: block;
-font-weight: 500px;
-margin-bottom: 5px;
-
-
-
+    transition: top 0.5s;
+    /* overflow: hidden; */
+    border-bottom: 1.5px solid #DDD;
 }
-.user .input-box input{
-    
-    height: 45px;
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-}
-form .btn{
-    height: 45px;
-    margin: 45px 0;
-    
-}
-form .btn input{
-    height: 100% ;
-    width: 100%;
-    outline: none;
-    font-size: 20px;
-    color: #fff;
-    background: linear-gradient(135deg, #71b7e6,#9b59b6);
-}
-  
- 

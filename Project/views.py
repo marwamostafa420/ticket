@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from .forms import PatientForm, ticketForm
 # Home Page
 
 
@@ -62,7 +61,22 @@ def profile(request):
 
 
 def reserve(request):
-    return render(request, "reservation/reserv.html")
+    form = PatientForm(request.POST or None, request.FILES or None)
+
+    if form.is_valid():
+        return redirect('ticket')
+    return render(request, 'reservation/reserv.html', {'form': form})
+
+
+def ticket(request):
+    name = ''
+    id = 0
+    form = PatientForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        name = cd['Name']
+        form.save()
+    return render(request, "Ticket/ticket.html", {'name': name})
 
 
 def more_serv(request):
@@ -79,10 +93,6 @@ def ARsingup(request):
 
 def ARlogin(request):
     return render(request, "LOGIN/arabic/index.html")
-
-
-def ticket(request):
-    return render(request, "Ticket/index.html")
 
 
 def forgetEmail(request):
