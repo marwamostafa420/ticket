@@ -191,212 +191,22 @@
             <div class="swiper mySwiper container">
                 <div class="swiper-wrapper content">
 
+                    {% for i in clincs %}
                     <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service1.jfif' %} ); background-repeat: no-repeat; background-size: cover;">
-
+                        style="background-image: url( '{{i.img.url}}'); background-repeat: no-repeat; background-size: cover;">
                         <div class="overlay"></div>
                         <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Internal Medicine</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
+                            <h1 class="card-content-text">{{i.name}}</h1>
+                            <p>
+                                {{i.desc}}
                             </p>
                             <!-- <a href="Pages/reservation/reserv.html">View</a></button> -->
-                            <a href="{% url 'internal' %}" class="btn btn-primary book">View</a>
+                            <a href="{% url 'showclinc' i.id %}" class="btn btn-primary book">View</a>
                         </div>
 
                     </div>
 
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service2.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Cardiology</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a></button> -->
-                            <a href="{% url 'heart' %}" class="btn btn-primary book">View</a>
-                        </div>
-
-                    </div>
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service3.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Nephrology</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-
-                            <a href="{% url 'kidney' %}" class="btn btn-primary book">View</a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image:url({% static 'Home/Image/service4.jpg' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Oncology</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'oncology' %}" class="btn btn-primary book">View</a>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service5.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Pediatric</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'children' %}" class="btn btn-primary book">View</a>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service6.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Obstetrics & Gynaecology</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'gyn' %}" class="btn btn-primary book">View</a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service7.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Ophthalmologist</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'eyes' %}" class="btn btn-primary book">View</a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service8.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Ear,Nose and Throat</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'ear' %}" class="btn btn-primary book">view</a>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service9.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Urology</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'urology' %}" class="btn btn-primary book">View</a>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service10.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Radiology</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'radiology' %}" class="btn btn-primary book">View</a>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/Dentistry.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Dentistry</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'teeth' %}" class="btn btn-primary book">View</a>
-
-
-                        </div>
-
-                    </div>
-                    <div class="swiper-slide serv-content"
-                        style="background-image: url({% static 'Home/Image/service12.jfif' %}); background-repeat: no-repeat; background-size: cover;">
-
-                        <div class="overlay"></div>
-                        <div class="card-content" style="opacity: 100%;z-index: 1;">
-                            <h1 class="card-content-text">Digestion System</h1>
-                            <p>Creeping for female light years that lesser can't evening heaven isn't bearing tree
-                                appear
-                            </p>
-
-                            <!-- <a href="Pages/reservation/reserv.html">View</a> -->
-                            <a href="{% url 'digestion' %}" class="btn btn-primary book">View</a>
-
-
-                        </div>
-
-                    </div>
+                    {% endfor %}
 
                 </div>
 
@@ -407,9 +217,9 @@
             <div class="swiper-pagination"></div>
         </section>
 
-
+        
         <div class="serv-link">
-            <a class="link" href="{% url 'more_serv' %}">Read More</a>
+            <a class="link" href="{% url 'more_serv' 37 %}">Read More</a>
             <i class="fa fa-arrow-right-long"></i>
         </div>
     </div>

@@ -24,7 +24,6 @@ class patientform(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'National_num': forms.TextInput(attrs={'class': 'form-control'}),
-
             'Name': forms.TextInput(attrs={'class': 'form-control'}),
             'BirthDay': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'City': forms.Select(attrs={'class': 'form-control'}),

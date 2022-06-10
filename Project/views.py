@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
+from sympy import Integer
+
+from Admin.models import Department
 from .forms import PatientForm, ticketForm
 # Home Page
 
 
 def home(request):
-    return render(request, "Home/home.html")
+    clincs = Department.objects.all()
+    return render(request, "Home/home.html",{'clincs':clincs})
 
 
 def children(request):
@@ -80,7 +84,9 @@ def ticket(request):
 
 
 def more_serv(request):
-    return render(request, 'MoreServ/moreServ.html')
+    clincs = Department.objects.all()
+    
+    return render(request, 'MoreServ/moreServ.html',{'clincs':clincs})
 
 
 def arabic(request):
@@ -97,3 +103,11 @@ def ARlogin(request):
 
 def forgetEmail(request):
     return render(request, 'forget/forget.html')
+
+
+
+
+def showclinc(request,id):
+    clinc = Department.objects.get(pk=id)
+    rate = clinc.rate
+    return render(request,'clinic/clinc.html',{'clinc':clinc,'range':range(0,rate)})

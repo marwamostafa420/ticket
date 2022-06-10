@@ -19,7 +19,7 @@ from django.urls import path
 from Admin.views import Dashboard, Ticket, admininfo, deletedepartment, deletepatient, department, doctor, editdepartment, patients, searchdepartment, searchpatient, updatedepartment
 
 from . import views
-from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve, forgetEmail
+from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, showclinc, teeth, urology, reserve, forgetEmail
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -48,7 +48,7 @@ urlpatterns = [
 
     path('', views.home, name='Home'),
     path('profile', views.profile),
-    path('MoreServ', views.more_serv, name='more_serv'),
+    path('MoreServ/<id>', views.more_serv, name='more_serv'),
     # path('SignUp', views.singup, name='signup'),
 
 
@@ -76,7 +76,7 @@ urlpatterns = [
     path('deletepatient/<p_id>', deletepatient, name="deletepatient"),
     path('searchpatient', searchpatient, name='searchpatient'),
 
-
+    path('showclinc/<id>',showclinc, name='showclinc'),
 
 ]
 if settings.DEBUG:

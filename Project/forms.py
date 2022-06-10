@@ -1,4 +1,4 @@
-from cv2 import DrawMatchesFlags_DEFAULT
+# from cv2 import DrawMatchesFlags_DEFAULT
 from django import forms
 from Admin.models import Patient, ticket
 
