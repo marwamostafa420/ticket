@@ -1,106 +1,137 @@
 {% extends 'base.html' %} {% block content %}
 
-<section class="search mt-5">
+{% if messages %}
+{% for message in messages %}
+<div class="m-auto w-50" id="success_alert">
+  <h4 class="alert box-color text-white text-center">{{ message }}</h4>
+</div>
+{% endfor %}
+{% endif %}
+<section class="table mt-2 w-75 m-auto position" id="patient-table">
   <div class="container">
     <div class="row">
-      <form class="form-inline">
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputPassword2"
-            placeholder="enter ID"
-          />
-        </div>
-        <button type="submit" class="btn mb-2">
-          <i class="fa fa-magnifying-glass"></i>
+      <div class="add">
+        <button type="button" class="btn btnsuccess text-white" data-toggle="modal" data-target="#addpatientCenter">
+          Add Patient
         </button>
-      </form>
+      </div>
+      <div class="main">
+        <form action="{% url 'searchpatient' %}" method="POST">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+        </form>
+      </div>
+
     </div>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>National ID</th>
+          <th>Date Of Birth</th>
+          <th>City</th>
+          <th>Phone</th>
+          <th>Reserved</th>
+          <th>Created at</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pat in patients %}
+        <tr>
+          <td>{{pat.Name}}</td>
+          <td>{{pat.National_num}}</td>
+          <td>{{pat.BirthDay}}</td>
+          <td>{{pat.City}}</td>
+          <td>{{pat.Phone}}</td>
+          <td>{{pat.reserved}}</td>
+          <td>{{pat.created_at}}</td>
+          <td>
+            <button class="btn btnsuccess" data-toggle="modal" data-target="#updatepatientCenter">
+              <i class="fa fa-pen text-white"></i>
+            </button>
+            <a href="{% url 'deletepatient' pat.id %}" class="btn btn-danger">
+              <i class="fa fa-trash text-white"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+        <!-- and so on... -->
+      </tbody>
+    </table>
+  </div>
   </div>
 </section>
 
-<section class="table mt-2">
-  <div class="container">
-    <div class="row">
-      <table class="table table-striped table-hover">
-        <thead class="thead table-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Birthdate</th>
-            <th scope="col">City</th>
-            <th scope="col">phone</th>
-            <th scope="col">Work name</th>
-            <th scope="col" class="operation">operation</th>
-            <th scope="col">
-              <a href="additions/patientform.html"
-                ><i class="fa fa-plus"></i
-              ></a>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>
-              <button type="submit" class="btn mb-2">
-                <i class="fa fa-pen"></i>
-              </button>
+<div class="modal fade" id="addpatientCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Patient</h5>
+        <div class="add">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body bg-light">
+        <form action="{% url 'Dashboard/patient' %}" method="post">
+          {% csrf_token %}
+          {{form.as_p}}
 
-              <button type="submit" class="btn mb-2 delete">
-                <i class="fa fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>
-              <button type="submit" class="btn mb-2">
-                <i class="fa fa-pen"></i>
-              </button>
 
-              <button type="submit" class="btn mb-2 delete">
-                <i class="fa fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <button type="submit" class="btn mb-2">
-                <i class="fa fa-pen"></i>
-              </button>
-
-              <button type="submit" class="btn mb-2 delete">
-                <i class="fa fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn btn-secondary" data-dismiss="modal">Close</a>
+        <button type="submit" class="btn btnsuccess text-white">Save changes</button>
+        </form>
+      </div>
     </div>
   </div>
-</section>
+</div>
+
+<div class="modal fade" id="updatepatientCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit
+          Patient</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-light">
+        <form action="">
+          <label for="">Name</label>
+          <input type="text" class="form-control">
+          <label for="">National ID</label>
+          <input type="text" class="form-control">
+
+          <label for="">DOB</label>
+          <input type="date" class="form-control">
+
+
+          <label for="">Address</label>
+          <input type="text" class="form-control">
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btnsuccess text-white">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}

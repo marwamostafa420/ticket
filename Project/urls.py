@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Admin.views import Dashboard, Ticket, admininfo, deletedepartment, department, doctor, patients, searchdepartment
+from Admin.views import Dashboard, Ticket, admininfo, deletedepartment, deletepatient, department, doctor, editdepartment, patients, searchdepartment, searchpatient, updatedepartment
 
 from . import views
 from Project.views import children, digestion, ear, eyes, gyn, heart, internal, kidney, oncology, radiology, teeth, urology, reserve, forgetEmail
@@ -64,14 +64,21 @@ urlpatterns = [
     path('ticket', views.ticket, name='ticket'),
     path('forgetEmail', views.forgetEmail, name='forgetEmail'),
 
-# Dashboard Action
-   path('delete/<depid>',deletedepartment, name="deletedepartment"),
-   path('search_dep',searchdepartment,name="search_dep"),
+    # Dashboard Action
+    path('delete/<depid>', deletedepartment, name="deletedepartment"),
+    path('search_dep', searchdepartment, name="search_dep"),
 
+
+
+    path('update/<id>', editdepartment, name='edit_department'),
+    path('updatedepartment', updatedepartment, name='updatedepartment'),
+
+    path('deletepatient/<p_id>', deletepatient, name="deletepatient"),
+    path('searchpatient', searchpatient, name='searchpatient'),
 
 
 
 ]
 if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL,
-                              document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

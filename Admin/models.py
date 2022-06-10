@@ -52,7 +52,7 @@ class Doctor(models.Model):
 class Patient(models.Model):
     National_num = models.CharField(max_length=14)
     Name = models.CharField(max_length=100)
-    BirthDay = models.DateField()
+    BirthDay = models.DateField(null=True)
     City = models.ForeignKey(City, on_delete=models.CASCADE)
     Phone = models.CharField(max_length=11)
     reserved = models.BooleanField(default=False)
