@@ -1,12 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-
+{% load crispy_forms_tags %}
 <section class="table mt-2 w-75 m-auto position" id="doctor-table">
   <div class="container">
     <div class="row">
       <div class="add">
-        <button type="button" class="btn btnsuccess text-white" data-toggle="modal" data-target="#exampleModalCenter">
-          Add Doctors
-        </button>
+        <a href="{% url 'addDoc' %}" class="btn btnsuccess text-white">
+          Add Doctor</a>
       </div>
       <div class="main">
         <form action="" method="POST">
@@ -24,44 +23,36 @@
     <table class="styled-table text-center rounded-2">
       <thead>
         <tr class="text-center">
+
           <th>#</th>
           <th>Name</th>
           <th>Special</th>
           <th>Phone</th>
+          <th>City</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
+        {% for i in doctor %}
         <tr>
-          <td>1</td>
-          <td>6000</td>
-          <td>Dom</td>
-          <td>Dom</td>
+
+          <td>{{i.id}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.dept}}</td>
+          <td>{{i.Phone}}</td>
+          <td>{{i.City}}</td>
           <td>
 
-            <button class="btn btnsuccess" data-toggle="modal" data-target="#updateModalCenter">
+            <a href="{% url 'editDoc' i.id %}" class="btn btn-success">
               <i class="fa fa-pen text-white"></i>
-            </button>
-            <button class="btn btn-danger">
+            </a>
+            <a href="{% url 'deleteDoc' i.id %}" class="btn btn-danger">
               <i class="fa fa-trash text-white"></i>
-            </button>
+            </a>
 
           </td>
         </tr>
-        <tr class="active-row">
-          <td>2</td>
-          <td>6000</td>
-          <td>Dom</td>
-          <td>Dom</td>
-          <td>
-            <button class="btn btnsuccess" data-toggle="modal" data-target="#updateModalCenter">
-              <i class="fa fa-pen text-white"></i>
-            </button>
-            <button class="btn btn-danger">
-              <i class="fa fa-trash text-white"></i>
-            </button>
-          </td>
-        </tr>
+        {% endfor %}
         <!-- and so on... -->
       </tbody>
     </table>
@@ -70,82 +61,6 @@
 </section>
 
 
-<!-- ADD Doctor -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Add Doctor</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body bg-light">
-        <form action="">
-          <label for="">Name</label>
-          <input type="text" class="form-control" />
-          <label for="">Special</label>
-          <select name="" class="form-control" id="">
-            <option value="">SPE2</option>
-            <option value="">SPE3</option>
-            <option value="">SPE</option>
-            <option value="">SPE8</option>
-            <option value="">SPE1</option>
-          </select>
-          <label for="">Phone</label>
-          <input type="text" class="form-control" />
 
-      </div>
-      <div class="modal-footer">
-        <a href="" class="btn btn-secondary" data-dismiss="modal">
-          Close
-        </a>
-        <button type="submit" class="btn btnsuccess text-white">
-          Save changes
-        </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="updateModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Doctor</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body bg-light">
-        <form action="">
-          <label for="">Name</label>
-          <input type="text" class="form-control" />
-          <label for="">Special</label>
-          <select name="" class="form-control" id="">
-            <option value="">SPE2</option>
-            <option value="">SPE3</option>
-            <option value="">SPE</option>
-            <option value="">SPE8</option>
-            <option value="">SPE1</option>
-          </select>
-          <label for="">Phone</label>
-          <input type="text" class="form-control" />
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btnsuccess text-white">
-          Save changes
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
 {% endblock %}

@@ -1,15 +1,20 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from sympy import Integer
 
-from Admin.models import Department
-from .forms import PatientForm, ticketForm
+
+from Admin.models import Department, Doctor, Patient
+from Admin.views import department
+from .forms import PatientForm, ticketForm, feedbackForm
 # Home Page
 
 
 def home(request):
+    Departmentcount = Department.objects.count()
+    patientscount = Patient.objects.count()
+    doctorscount = Doctor.objects.count()
     clincs = Department.objects.all()
-    return render(request, "Home/home.html",{'clincs':clincs})
+    return render(request, "Home/home.html", {'clincs': clincs, 'doctor': doctorscount, 'patient': patientscount, 'dept': Departmentcount, 'ticket': patientscount})
 
 
 def children(request):
@@ -85,8 +90,7 @@ def ticket(request):
 
 def more_serv(request):
     clincs = Department.objects.all()
-    
-    return render(request, 'MoreServ/moreServ.html',{'clincs':clincs})
+    return render(request, 'MoreServ/moreServ.html', {'clincs': clincs})
 
 
 def arabic(request):
@@ -105,9 +109,19 @@ def forgetEmail(request):
     return render(request, 'forget/forget.html')
 
 
-
-
-def showclinc(request,id):
+def showclinc(request, id):
     clinc = Department.objects.get(pk=id)
     rate = clinc.rate
-    return render(request,'clinic/clinc.html',{'clinc':clinc,'range':range(0,rate)})
+    return render(request, 'clinic/clinc.html', {'clinc': clinc, 'range': range(0, rate)})
+
+
+def feedback(request):
+
+    form = feedbackForm()
+    if request.method == 'POST':
+        form = feedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Home')
+    # return render(request, '', {'form': form})
+    return HttpResponse('welcome', {'form': form})

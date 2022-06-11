@@ -1,6 +1,6 @@
 
 from django import forms
-from .models import Department, Patient
+from .models import Department, Patient, Doctor, feedback
 
 
 class clincform(forms.ModelForm):
@@ -23,9 +23,14 @@ class patientform(forms.ModelForm):
         model = Patient
         fields = '__all__'
         widgets = {
-            'National_num': forms.TextInput(attrs={'class': 'form-control'}),
-            'Name': forms.TextInput(attrs={'class': 'form-control'}),
-            'BirthDay': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'City': forms.Select(attrs={'class': 'form-control'}),
-            'Phone': forms.TextInput(attrs={'class': 'form-control'})
+            'BirthDay': forms.DateInput(attrs={'type': 'date'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super(patientform, self).__init__(*args, **kwargs)
+
+
+class doctorForm(forms.ModelForm):
+    class Meta:
+        model = Doctor
+        fields = '__all__'

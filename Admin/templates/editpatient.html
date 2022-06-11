@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+{% load crispy_forms_tags %}
+<!-- Edit Dcotor -->
+{% if messages %}
+{% for message in messages %}
+<div class="m-auto w-50" id="success_alert">
+    <h4 class="alert box-color text-white text-center">{{ message }}</h4>
+</div>
+{% endfor %}
+{% endif %}
+<div class="container">
+    <form class="ms-5 bg-light p-4 rounded-2" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Add & Edit Patient</h3>
+        <form action="Dashboard/doctors" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    {{form.Name | as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.National_num | as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.BirthDay | as_crispy_field}}
+                </div>
+                <div class="col-md-4">
+                    {{form.Phone | as_crispy_field}}
+                </div>
+                <div class="col-md-8">
+                    {{form.City | as_crispy_field}}
+                </div>
+
+            </div>
+            <button type="submit" class="btn btnsuccess text-white">Submit</button>
+
+        </form>
+
+    </form>
+</div>
+{% endblock %}

@@ -66,14 +66,14 @@
     <div class="row">
       <div class="add">
         <button type="button" class="btn btnsuccess text-white" data-toggle="modal" data-target="#exampleModalCenter">
-          Add Doctors
+          add Doctors
         </button>
       </div>
       <div class="main">
-        <form action="" method="POST">
+        <form action="Dashboard/doctors" method="POST">
           <div class="input-group">
             <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-
+            {{form.as_p}}
             <div class="input-group-append">
               <button class="btn btnsuccess" type="submit">
                 <i class="fa fa-search text-white"></i>
@@ -93,11 +93,12 @@
         </tr>
       </thead>
       <tbody>
+        {% for i in doctor %}
         <tr>
-          <td>1</td>
-          <td>6000</td>
+          <td>{{i.id}}</td>
+          <td>{{i.name}}</td>
           <td>Dom</td>
-          <td>Dom</td>
+          <td>Dommmmmmmm</td>
           <td>
 
             <button class="btn btnsuccess" data-toggle="modal" data-target="#updateModalCenter">
@@ -109,11 +110,12 @@
 
           </td>
         </tr>
+        {% endfor %}
         <tr class="active-row">
           <td>2</td>
           <td>6000</td>
           <td>Dom</td>
-          <td>Dom</td>
+          <td>Dommmmmmmmmmmmmmmm</td>
           <td>
             <button class="btn btnsuccess" data-toggle="modal" data-target="#updateModalCenter">
               <i class="fa fa-pen text-white"></i>
@@ -419,18 +421,10 @@
         </button>
       </div>
       <div class="modal-body bg-light">
-        <form action="">
-          <label for="">Name</label>
-          <input type="text" class="form-control">
-          <label for="">Special</label>
-          <select name="" class="form-control" id="">
-            <option value="">SPE2</option>
-            <option value="">SPE3</option>
-            <option value="">SPE</option>
-            <option value="">SPE8</option>
-            <option value="">SPE1</option>
-          </select>
-          <label for="">Phone</label>
+        <form action="{% url 'Dashboard/doctors' %}" method="POST">
+
+          {{form.as_p}}
+
           <input type="text" class="form-control">
 
         </form>
@@ -449,25 +443,15 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Doctor</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">E Doctor</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body bg-light">
-        <form action="">
-          <label for="">Name</label>
-          <input type="text" class="form-control">
-          <label for="">Special</label>
-          <select name="" class="form-control" id="">
-            <option value="">SPE2</option>
-            <option value="">SPE3</option>
-            <option value="">SPE</option>
-            <option value="">SPE8</option>
-            <option value="">SPE1</option>
-          </select>
-          <label for="">Phone</label>
-          <input type="text" class="form-control">
+        <form action="Dashboard/doctors" method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
 
         </form>
       </div>

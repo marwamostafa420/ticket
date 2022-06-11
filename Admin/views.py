@@ -1,7 +1,7 @@
 import os
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from Admin.forms import clincform, patientform
+from Admin.forms import clincform,  patientform, doctorForm
 from Admin.models import Department, Patient, Doctor, ticket
 
 # Create your views here.
@@ -32,18 +32,62 @@ def department(request):
 
 
 def doctor(request):
-    return render(request, 'doctors.html')
+    doctor = Doctor.objects.all()
+    messages.success(request, "A Doctro Has Been Deleted Succesfully ")
+    return render(request, 'doctors.html', {'doctor': doctor})
+
+
+def addEditDoc(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = doctorForm()
+        else:
+            doc = Doctor.objects.get(pk=id)
+            form = doctorForm(instance=doc)
+        return render(request, 'edit_doctor.html', {'form': form})
+
+    else:
+        if id == 0:
+            form = doctorForm(request.POST)
+        else:
+            doc = Doctor.objects.get(pk=id)
+            form = doctorForm(request.POST, instance=doc)
+
+        if form.is_valid():
+            form.save()
+    return redirect('Dashboard/doctors')
+
+
+def deleteDoc(request, id):
+    item = Doctor.objects.get(pk=id)
+    item.delete()
+    messages.success(request, "A Doctor Has Been Deleted Succesfully ")
+    return redirect('Dashboard/doctors')
 
 
 def patients(request):
-    patients = Patient.objects.all()
-    form = patientform(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Succesfully added")
-        # return redirect('Dashboard/patients')
-    context = {'patients': patients, 'form': form}
-    return render(request, 'patients.html', context)
+    # city=City.objects.get(pk=city_id)
+    pat = Patient.objects.all()
+    return render(request, 'patients.html', {'pat': pat})
+
+
+def addEditPatient(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = patientform()
+        else:
+            pat = Patient.objects.get(pk=id)
+            form = patientform(instance=pat)
+        return render(request, 'editpatient.html', {'form': form})
+    else:
+        if id == 0:
+            form = patientform(request.POST)
+        else:
+            pat = Patient.objects.get(pk=id)
+            form = patientform(request.POST, instance=pat)
+        if form.is_valid():
+            form.save()
+    return redirect('Dashboard/patient')
 
 
 def Ticket(request):

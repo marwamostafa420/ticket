@@ -1,6 +1,6 @@
 # from cv2 import DrawMatchesFlags_DEFAULT
 from django import forms
-from Admin.models import Patient, ticket
+from Admin.models import Patient, ticket, feedback
 
 
 class PatientForm(forms.ModelForm):
@@ -19,4 +19,10 @@ class PatientForm(forms.ModelForm):
 class ticketForm(forms.ModelForm):
     class Meta:
         model = ticket
+        fields = '__all__'
+
+
+class feedbackForm(forms.ModelForm):
+    class Meta:
+        model = feedback
         fields = '__all__'
