@@ -22,7 +22,7 @@ class ticketForm(forms.ModelForm):
         fields = '__all__'
 
 
-class feedbackForm(forms.ModelForm):
+class Feedform(forms.ModelForm):
     class Meta:
         model = feedback
-        fields = '__all__'
+        exclude = {'Feedback'}

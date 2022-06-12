@@ -71,8 +71,11 @@ class ticket(models.Model):
 
 
 class feedback(models.Model):
-    Feedback = models.CharField(max_length=255)
+    Feedback = models.CharField(max_length=255, name='FeedBack')
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self) -> str:
+        return self.FeedBack
 
 
 class Appointment(models.Model):

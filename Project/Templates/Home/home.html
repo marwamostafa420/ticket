@@ -724,7 +724,7 @@
     <!-- Feed Back -->
     <div class="feed-back">
         <div class="container">
-            <a class="feed-back-btn" href="{% url 'feedback' %}" target="_self">Your FeedBack</a>
+            <button class="feed-back-btn">Your FeedBack</button>
 
             <div class="fedback">
                 <div class="top">
@@ -754,11 +754,9 @@
                     <div class="btn btn-outline-dark">Compliment</div>
                 </div>
                 <hr>
-                <form action="{% url 'Home' %}" method="POST">
-
-                    <p class="error">Please leave your feedBack bleow</p>
+                <form action="{% url 'newfeedback' %}" method="POST">
                     {% csrf_token %}
-                    {{ from | crispy }}
+                    <input type="text" name="FeedBack" id="" class="form-control w-75 feedbackInput">
                     <button type="submit" class="btn btn-success send">Send</button>
                 </form>
 

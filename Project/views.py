@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 from Admin.models import Department, Doctor, Patient
 from Admin.views import department
-from .forms import PatientForm, ticketForm, feedbackForm
+from .forms import PatientForm, Feedform
 # Home Page
 
 
@@ -115,13 +115,13 @@ def showclinc(request, id):
     return render(request, 'clinic/clinc.html', {'clinc': clinc, 'range': range(0, rate)})
 
 
-def feedback(request):
-
-    form = feedbackForm()
+def add_Feedback(request):
+    form = Feedform()
     if request.method == 'POST':
-        form = feedbackForm(request.POST)
+
+        form = Feedform(request.POST)
+
         if form.is_valid():
+            form = form.save(commit=False)
             form.save()
             return redirect('Home')
-    # return render(request, '', {'form': form})
-    return HttpResponse('welcome', {'form': form})
